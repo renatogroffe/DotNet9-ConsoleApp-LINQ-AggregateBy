@@ -46,13 +46,3 @@ var populacaoPorRegiao = estados.AggregateBy(
 );
 foreach (var (regiao, totalPopulacao) in populacaoPorRegiao)
     Console.WriteLine($"    Regiao: {regiao} - Populacao total: {totalPopulacao}");
-
-Console.WriteLine();
-Console.WriteLine("Quantidade de estados por regioes brasileiras:");
-var estadosPorRegiao = estados.AggregateBy(
-    keySelector: estado => estado.Regiao!,
-    seed: 0,
-    (qtdeEstados, _) => qtdeEstados + 1
-);
-foreach (var (regiao, qtdeEstados) in estadosPorRegiao)
-    Console.WriteLine($"    Regiao: {regiao} - Quantidade de estados: {qtdeEstados}");
